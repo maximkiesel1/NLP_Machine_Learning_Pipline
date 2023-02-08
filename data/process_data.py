@@ -1,6 +1,18 @@
-{\rtf1\ansi\ansicpg1252\cocoartf2706
-\cocoatextscaling0\cocoaplatform0{\fonttbl}
-{\colortbl;\red255\green255\blue255;}
-{\*\expandedcolortbl;;}
-\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
-}
+# import libraries
+import pandas as pd
+
+# load data
+df1 = pd.read_csv('/Users/maximkiesel/NLP_Pipline_disaster_response/data/disaster_messages.csv')
+df2 = pd.read_csv('/Users/maximkiesel/NLP_Pipline_disaster_response/data/disaster_categories.csv')
+
+df2.head()
+
+# cleaning the row 'genre'
+df1 = df1.replace(r"\\", "", regex=True)
+
+
+# cleaning the column name
+df1.rename(columns={'genre\\': 'genre'}, inplace=True)
+df2.rename(columns={'categories\\': 'categories'}, inplace=True)
+
+df2.isnull().sum()
