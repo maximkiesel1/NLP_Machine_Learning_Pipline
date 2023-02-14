@@ -2,6 +2,21 @@
 import pandas as pd
 import numpy as np
 from sqlalchemy import create_engine
+import nltk
+import ssl
+
+# deactivate certificate 
+try:
+    _create_unverified_https_context = ssl._create_unverified_context
+except AttributeError:
+    pass
+else:
+    ssl._create_default_https_context = _create_unverified_https_context
+
+# download nltk data 
+nltk.download('punkt')
+nltk.download('averaged_perceptron_tagger')
+nltk.download('maxent_ne_chunker')
 
 # load data
 df1 = pd.read_csv('/Users/maximkiesel/NLP_Pipline_disaster_response/data/disaster_messages.csv')
