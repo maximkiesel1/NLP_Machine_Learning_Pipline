@@ -152,13 +152,13 @@ def build_model():
     ])
     
     # define the split for gridsearch
-    shuffle = ShuffleSplit(n_splits=5, test_size=0.3, random_state=42)
+    shuffle = ShuffleSplit(n_splits=3, test_size=0.3, random_state=42)
     
     # define set of hyperparameters for test of the ml model with gridsearch
 
     parameters = {
-        'clf__max_depth': [400, 600],
-        'clf__n_estimators': [800, 1000]
+        'clf__max_depth': [1],
+        'clf__n_estimators': [1]
     }
     
     model = GridSearchCV(pipeline, param_grid=parameters, cv=shuffle)
@@ -182,7 +182,6 @@ def evaluate_model(model, X_test, y_test):
     target_names = list(y_test.columns)
     y_pred = model.predict(X_test)
     report = classification_report(y_test, y_pred, target_names=target_names)
-    print("Labels:", target_names)
     print("Classification Report:\n", report)
     print("\nBest Parameters:", model.best_params_)
 
@@ -199,8 +198,8 @@ def save_model(model, model_filepath):
     None
     '''
     # save the model as a pickle file
-    with open(model_filepath, 'wb') as model:
-        pickle.dump(model, model)
+    with open(model_filepath, 'wb') as model_file:
+        pickle.dump(model, model_file)
 
 
 def main():
