@@ -48,7 +48,7 @@ The app folder contains the following files:
 - go.html: A web page that displays the classification results for a single text message.
 - master.html: A web page that displays the classification results for multiple text messages.
 
-#H ow to use the package
+# How to use the package
 
 To use the package, follow these steps:
 
