@@ -1,4 +1,4 @@
-# NLP_Pipline_disaster_response
+# NLP Pipline Disaster Response: A NLP Machine Learning Pipeline Embedded In A Web App
 
 This Python package contains an NLP machine learning pipeline that processes and cleans raw data, stores it in a SQL database, retrieves the data from the SQL database, processes it in a machine learning pipeline (using bow, pos, tf-idf, lemmatization), and trains a random forest. The best parameters for the model are found using grid search before the model is trained. The resulting model is then saved in a classifier.pkl file. The package also includes a web app (app.py) that loads the data and transfers it to a web app, allowing other texts to be processed using the machine learning model.
 
