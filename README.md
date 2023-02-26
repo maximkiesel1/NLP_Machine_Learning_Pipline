@@ -2,7 +2,7 @@
 ![usgs-k7WetNdaY6A-unsplash](https://user-images.githubusercontent.com/119667336/221402218-b0df9bfe-09a0-4a60-a681-5a239ed89e5c.jpg)
 
 
-This Python project contains an NLP machine learning pipeline that processes and cleans raw data, stores it in a SQL database, retrieves the data from the SQL database, processes it in a machine learning pipeline (using bow, pos, tf-idf, lemmatization), and trains a random forest. The best parameters for the model are found using grid search before the model is trained. The resulting model is then saved in a classifier.pkl file. The package also includes a web app (`app.py`) that loads the data and transfers it to a web app, allowing other texts to be processed using the machine learning model.
+This Python project contains an NLP machine learning pipeline that processes and cleans raw data, stores it in a SQL database, retrieves the data from the SQL database, processes it in a machine learning pipeline (using bow, pos, tf-idf, lemmatization), and trains a random forest. The best parameters for the model are found using grid search before the model is trained. The resulting model is then saved in a `classifier.pkl` file. The package also includes a web app (`app.py`) that loads the data and transfers it to a web app, allowing other texts to be processed using the machine learning model.
 
 # Directory Structure
 
@@ -44,7 +44,7 @@ The models folder contains the following files:
     - `f1-score = 0.60`
 - `text_length_extractor.py`: A Python script that extracts the length of each text message in characters and words.
 - `classifier.pkl.zip: A file containing the trained machine learning model.
-  - To download the `classifier.py.zip` file, which has been uploaded to a Git LFS server, you will need to have Git LFS installed and configured. After installing Git LFS, you can activate it by running the command `git lfs install`. Once Git LFS is installed and configured, you can download the `classifier.py.zip` file by running `git lfs pull`. After downloading, the file will be in its compressed zip format and must be manually unzipped by the user.
+  - To download the `classifier.py.zip` file, which has been uploaded to a Git LFS server (the `classifier.pkl` file is >10GB), you will need to have Git LFS installed and configured. After installing Git LFS, you can activate it by running the command `git lfs install`. Once Git LFS is installed and configured, you can download the `classifier.py.zip` file by running `git lfs pull`. After downloading, the file will be in its compressed zip format and must be manually unzipped by the user in the same file like `classifier.py.zip`.
 
 # Web App
 
