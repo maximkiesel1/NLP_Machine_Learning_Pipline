@@ -49,11 +49,11 @@ The models folder contains the following files:
 
 The app folder contains the following files:
 
-- run.py: A Python script that loads the trained machine learning model from the classifier.pkl file and uses it to classify new text messages.
+- run.py: Start a Flask web application to use the machine learning model in the web app and show some graphs about the training data. 
 - text_length_extractor.py: A Python script that extracts the length of each text message in characters and words.
 - templates (sub-folder): A sub-folder containing the following files:
-  - go.html: template file for the output page of the web app
-  - master.html: template file for building the overall structure and layout of the web app
+  - go.html: Template file for the output page of the web app
+  - master.html: Template file for building the overall structure and layout of the web app
 
 # How to use the program
 
