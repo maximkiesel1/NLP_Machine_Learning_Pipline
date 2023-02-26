@@ -34,7 +34,7 @@ The data folder contains the following files:
 - `process_data.py`: A Python script that reads in the `disaster_messages.csv` and `disaster_categories.csv` files, cleans the data, and saves the resulting data in a SQLite database called `cleaned_data_sql.db`.
 - `cleaned_data_sql.db`: A SQLite database containing the cleaned data from the `disaster_messages.csv` and `disaster_categories.csv` files.
 
-# Model
+# Models
 
 The models folder contains the following files:
 
