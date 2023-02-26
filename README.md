@@ -89,4 +89,4 @@ Note that some of these libraries have already been imported multiple times in t
   - Here is an example to run the program:
     - <img width="1125" alt="Bildschirm­foto 2023-02-26 um 10 30 53" src="https://user-images.githubusercontent.com/119667336/221402750-f46597e4-27a4-4392-9c05-551adc8513d4.png">
 - Navigate to the models folder and run python `train_classifier.py`. This will read in the cleaned data from the `cleaned_data_sql.db` file, process it using a machine learning pipeline (using bow, pos, tf-idf, lemmatization), and train a random forest.
-- Navigate to the app folder and run python `run.py. This will start the web app.
+- Navigate to the app folder and run python `run.py`. This will start the web app.
