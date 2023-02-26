@@ -18,7 +18,6 @@ from nltk.stem import WordNetLemmatizer
 from nltk import pos_tag
 from nltk.tokenize import word_tokenize
 
-sys.path.append("/Users/maximkiesel/NLP_Pipline_disaster_response/models")
 from text_length_extractor import TextLengthExtractor
 
 
@@ -82,7 +81,7 @@ def tokenize(message):
 
 
 # load data
-engine = create_engine('sqlite:////Users/maximkiesel/NLP_Pipline_disaster_response/data/cleaned_data_sql.db')
+engine = create_engine('sqlite:///../data/cleaned_data_sql.db')
 
 # create a connection
 conn = engine.connect()
@@ -94,7 +93,7 @@ sql = text("SELECT * FROM cleaned_data")
 df = pd.read_sql(sql, conn)
 
 # load model
-model = joblib.load("/Users/maximkiesel/NLP_Pipline_disaster_response/models/classifier.pkl")
+model = joblib.load("../models/classifier.pkl")
 
 
 def count_pos_class(df):
@@ -123,6 +122,34 @@ def count_pos_class(df):
                 next
     return numb_pos_class, name_pos_class
 
+def top_dif_class(df):
+    '''
+    Find how many different classes have a message in the corpus. Sorte by the lowest to the highest.
+    
+    INPUT
+    df - dataframe which have one feature and the rest are target columns with 0 or 1 values
+    
+    OUTPUT
+    list_count - list with the unique counts of messages with different classes
+    top_count - list with names for the unique counts
+    '''
+    list_count = []
+    for index, row in df.iterrows():
+        class_count = 0
+        for i in row:
+            if i == '1':
+                class_count += 1
+        list_count.append(class_count)
+    
+    list_count = list(set(list_count))
+    
+    top_count = []
+
+    for i in range(1, len(list_count)+1):
+        top_count.append(f"Top{i}")
+    
+    return list_count, top_count
+
 # index webpage displays cool visuals and receives user input text for model
 @app.route('/')
 @app.route('/index')
@@ -131,7 +158,10 @@ def index():
     # extract data needed for visuals
     numb_pos_class, name_pos_class = count_pos_class(df)
     
+    list_count, top_count = top_dif_class(df)
+    
     # create visuals
+
     graphs = [
         {
             'data': [
@@ -142,17 +172,37 @@ def index():
             ],
 
             'layout': {
-                'title': 'Distribution positive Classes of Messages',
+                'title': 'Distribution Positive Classes Of Messages',
                 'yaxis': {
                     'title': "Count"
                 },
                 'xaxis': {
-                    'title': "Names with positive classes"
+                    'title': "Names With Positive Classes",
+                    'tickangle': 35
+                }
+            }
+        },
+        {
+            'data': [
+                Bar(
+                    x = top_count,
+                    y = list_count
+                )
+            ],
+
+            'layout': {
+                'title': 'Count Of Different Classes In Single Messages',
+                'yaxis': {
+                    'title': "Count"
+                },
+                'xaxis': {
+                    'title': "Top Counts",
+                    'tickangle': 35
                 }
             }
         }
     ]
-    
+
     # encode plotly graphs in JSON
     ids = ["graph-{}".format(i) for i, _ in enumerate(graphs)]
     graphJSON = json.dumps(graphs, cls=plotly.utils.PlotlyJSONEncoder)

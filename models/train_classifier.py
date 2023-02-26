@@ -152,13 +152,13 @@ def build_model():
     ])
     
     # define the split for gridsearch
-    shuffle = ShuffleSplit(n_splits=3, test_size=0.3, random_state=42)
+    shuffle = ShuffleSplit(n_splits=5, test_size=0.3, random_state=42)
     
     # define set of hyperparameters for test of the ml model with gridsearch
 
     parameters = {
-        'clf__max_depth': [1],
-        'clf__n_estimators': [1]
+        'clf__max_depth': [800, 1000],
+        'clf__n_estimators': [500, 800]
     }
     
     model = GridSearchCV(pipeline, param_grid=parameters, cv=shuffle)
