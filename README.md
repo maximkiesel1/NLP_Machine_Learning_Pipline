@@ -43,7 +43,8 @@ The models folder contains the following files:
     - Recall = 0.85
     - F1-Score = 0.60
 - text_length_extractor.py: A Python script that extracts the length of each text message in characters and words.
-- classifier.pkl: A file containing the trained machine learning model.
+- classifier.pkl.zip: A file containing the trained machine learning model.
+  - To download the classifier.py.zip file, which has been uploaded to a Git LFS server, you will need to have Git LFS installed and configured. After installing Git LFS, you can activate it by running the command git lfs install. Once Git LFS is installed and configured, you can download the classifier.py.zip file by running git lfs pull. After downloading, the file will be in its compressed zip format and must be manually unzipped by the user.
 
 # Web App
 
