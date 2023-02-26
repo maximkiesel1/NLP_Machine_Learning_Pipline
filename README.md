@@ -2,7 +2,7 @@
 ![usgs-k7WetNdaY6A-unsplash](https://user-images.githubusercontent.com/119667336/221402218-b0df9bfe-09a0-4a60-a681-5a239ed89e5c.jpg)
 
 
-This Python project contains an NLP machine learning pipeline that processes and cleans raw data, stores it in a SQL database, retrieves the data from the SQL database, processes it in a machine learning pipeline (using bow, pos, tf-idf, lemmatization), and trains a random forest. The best parameters for the model are found using grid search before the model is trained. The resulting model is then saved in a classifier.pkl file. The package also includes a web app (`app.py`) that loads the data and transfers it to a web app, allowing other texts to be processed using the machine learning model.
+This Python project contains an NLP machine learning pipeline that processes and cleans raw data, stores it in a SQL database, retrieves the data from the SQL database, processes it in a machine learning pipeline (using bow, pos, tf-idf, lemmatization), and trains a random forest. The best parameters for the model are found using grid search before the model is trained. The resulting model is then saved in a `classifier.pkl file. The package also includes a web app (`app.py`) that loads the data and transfers it to a web app, allowing other texts to be processed using the machine learning model.
 
 # Directory Structure
 
@@ -34,7 +34,7 @@ The data folder contains the following files:
 - `process_data.py`: A Python script that reads in the `disaster_messages.csv` and `disaster_categories.csv` files, cleans the data, and saves the resulting data in a SQLite database called `cleaned_data_sql.db`.
 - `cleaned_data_sql.db`: A SQLite database containing the cleaned data from the `disaster_messages.csv` and `disaster_categories.csv` files.
 
-# Models
+# Model
 
 The models folder contains the following files:
 
