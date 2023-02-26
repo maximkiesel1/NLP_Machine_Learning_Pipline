@@ -1,6 +1,8 @@
 # NLP Pipline Disaster Response: A NLP Machine Learning Pipeline Embedded In A Web App
+![usgs-k7WetNdaY6A-unsplash](https://user-images.githubusercontent.com/119667336/221402218-b0df9bfe-09a0-4a60-a681-5a239ed89e5c.jpg)
 
-This Python package contains an NLP machine learning pipeline that processes and cleans raw data, stores it in a SQL database, retrieves the data from the SQL database, processes it in a machine learning pipeline (using bow, pos, tf-idf, lemmatization), and trains a random forest. The best parameters for the model are found using grid search before the model is trained. The resulting model is then saved in a classifier.pkl file. The package also includes a web app (app.py) that loads the data and transfers it to a web app, allowing other texts to be processed using the machine learning model.
+
+This Python project contains an NLP machine learning pipeline that processes and cleans raw data, stores it in a SQL database, retrieves the data from the SQL database, processes it in a machine learning pipeline (using bow, pos, tf-idf, lemmatization), and trains a random forest. The best parameters for the model are found using grid search before the model is trained. The resulting model is then saved in a classifier.pkl file. The package also includes a web app (app.py) that loads the data and transfers it to a web app, allowing other texts to be processed using the machine learning model.
 
 # Directory Structure
 
@@ -18,6 +20,7 @@ The package has the following directory structure:
     - classifier.pkl
   - app (sub-folder)
     - run.py
+    - text_length_extractor.py
     - templates (sub-folder)
       - go.html
       - master.html
@@ -44,15 +47,38 @@ The models folder contains the following files:
 The app folder contains the following files:
 
 - run.py: A Python script that loads the trained machine learning model from the classifier.pkl file and uses it to classify new text messages.
+- text_length_extractor.py: A Python script that extracts the length of each text message in characters and words.
 - templates (sub-folder): A sub-folder containing the following files:
-- go.html: A web page that displays the classification results for a single text message.
-- master.html: A web page that displays the classification results for multiple text messages.
+  - go.html: A web page that displays the classification results for a single text message.
+  - master.html: A web page that displays the classification results for multiple text messages.
 
 # How to use the package
 
 To use the package, follow these steps:
 
 - Clone the repository to your local machine.
-- Install the required packages by running pip install -r requirements.txt in the root directory of the repository.
+- To successfully run this project, the following libraries are required:
+
+json
+plotly
+pandas
+nltk
+Flask
+joblib
+sqlalchemy
+ssl
+pickle
+sklearn
+text_length_extractor
+sys
+re
+
+Please ensure that these libraries are installed on your system before running the code. If any of these libraries are missing, you can install them using pip. For example, to install the pandas library, you can use the following command:
+
+pip install pandas
+
+Note that some of these libraries have already been imported multiple times in the code, so please ensure that there are no duplicates.
+
 - Navigate to the data folder and run python process_data.py. This will read in the disaster_messages.csv and disaster_categories.csv files, clean the data, and save the resulting data in a SQLite database called cleaned_data_sql.db.
 - Navigate to the models folder and run python train_classifier.py. This will read in the cleaned data from the cleaned_data_sql.db file, process it using a machine learning pipeline (using bow, pos, tf-idf, lemmatization), and train a random forest.
+- Navigate to the app folder and run python run.py. This will start the web app.
