@@ -59,19 +59,19 @@ To use the package, follow these steps:
 - Clone the repository to your local machine.
 - To successfully run this project, the following libraries are required:
 
-json
-plotly
-pandas
-nltk
-Flask
-joblib
-sqlalchemy
-ssl
-pickle
-sklearn
-text_length_extractor
-sys
-re
+  - json
+  - plotly
+  - pandas
+  - nltk
+  - Flask
+  - joblib
+  - sqlalchemy
+  - ssl
+  - pickle
+  - sklearn
+  - text_length_extractor
+  - sys
+  - re
 
 Please ensure that these libraries are installed on your system before running the code. If any of these libraries are missing, you can install them using pip. For example, to install the pandas library, you can use the following command:
 
