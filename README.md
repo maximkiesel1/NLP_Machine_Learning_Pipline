@@ -39,6 +39,9 @@ The data folder contains the following files:
 The models folder contains the following files:
 
 - train_classifier.py: A Python script that reads in the cleaned data from the cleaned_data_sql.db file, processes it using a machine learning pipeline (using bow, pos, tf-idf, lemmatization), and trains a random forest. The best parameters for the model are found using grid search. The resulting model is then saved in a file called classifier.pkl.
+  - With this model the following score is reached:
+    - Recall = 0.85
+    - F1-Score = 0.60
 - text_length_extractor.py: A Python script that extracts the length of each text message in characters and words.
 - classifier.pkl: A file containing the trained machine learning model.
 
@@ -49,10 +52,10 @@ The app folder contains the following files:
 - run.py: A Python script that loads the trained machine learning model from the classifier.pkl file and uses it to classify new text messages.
 - text_length_extractor.py: A Python script that extracts the length of each text message in characters and words.
 - templates (sub-folder): A sub-folder containing the following files:
-  - go.html: A web page that displays the classification results for a single text message.
-  - master.html: A web page that displays the classification results for multiple text messages.
+  - go.html: template file for the output page of the web app
+  - master.html: template file for building the overall structure and layout of the web app
 
-# How to use the package
+# How to use the program
 
 To use the package, follow these steps:
 
